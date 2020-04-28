@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function computerPlay(){
+    const options=["rock", "paper", "scissors"];
+    let randomOption= options[Math.floor(Math.random() * options.length)];
+    return randomOption
+}
+function userplay(){
+    let choice=prompt("Enter 'rock','paper',or 'sciossors'!");
+    return choice.toLowerCase();
+}
+
+let playerScore = 0;
+let computerScore = 0 ;
+let tie = 0;
+
+function playRound(playerSelection, computerSelection){
+    if (playerSelection === computerSelection){
+        return ("Tie Game!");
+    }else if (playerSelection == "rock" && computerSelection == "paper"){
+        return ("Paper smothers rock Computer wins!")
+        computerScore++;
+    }else if (playerSelection == "rock" && computerSelection == "scissors"){
+        return ("Rock breaks Scissors Player wins!")
+         playerScore++;
+    }else if (playerSelection == "paper" && computerSelection == "rock"){
+        return ("Paper smothers rock Player wins!")
+        playerScore++;
+    }else if (playerSelection == "paper" && computerSelection == "scissors"){
+        return ("Scissors cuts paper Computer wins!")
+        computerScore++;
+    }else if (playerSelection == "scissors" && computerSelection == "paper"){
+        return ("Scissors cuts Paper Player wins!")
+        playerScore++;
+    }else if (playerSelection == "scissors" && computerSelection == "rock"){
+        return ("Rock breaks Scissors Computer wins!")
+        computerScore++;
+    }else{
+        return("Invalid Entry");
+    }
+}
+
+function game(){
+    turn =0;
+    while(turn!=5){
+    playerSelection = userplay();
+    console.log(playerScore);
+    console.log(computerScore);
+    computerSelection = computerPlay();
+    console.log(playRound(playerSelection, computerSelection));
+    turn++;
+}}
+
+game();
+
+
+
+
+if (playerScore > computerScore){
+    console.log('Player Wins!!'); 
+}else if (computerScore > playerScore){
+    console.log("Computer Wins!!");
+}else{
+    console.log("It's a Draw!!")
+    console.log(playerScore)
+
+}
+
+
+
+
+    </script>
+</html>
